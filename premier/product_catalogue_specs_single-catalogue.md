@@ -32,6 +32,42 @@ A web-based application enabling businesses to maintain a single product catalog
 - Password reset functionality
 - Email verification
 - Session management
+- Multi-user support with role-based access
+
+#### User Roles & Permissions
+
+**Owner (Full Access)**
+- All system permissions
+- Manage users and roles
+- Access all features
+- View all analytics
+- Manage business settings
+
+**Manager**
+- Add/edit/delete products
+- Manage categories
+- Edit catalogue settings
+- Process quote requests
+- View customer information
+- View analytics
+- Cannot manage users or business settings
+
+**Staff**
+- Add/edit products (cannot delete)
+- Add categories (cannot delete)
+- View catalogue
+- View quote requests (cannot process)
+- View customer information (read-only)
+- Cannot access analytics or settings
+
+#### User Management
+- Add new users (Owner only)
+- Assign roles to users
+- Edit user information
+- Deactivate/activate users
+- View user activity logs
+- Set user permissions
+- Invite users via email
 
 #### Business Profile
 - Business name
@@ -259,7 +295,9 @@ A web-based application enabling businesses to maintain a single product catalog
 
 ### 5.2 Database Schema (Core Tables)
 
-- **Users**: Admin accounts
+- **Users**: User accounts (Owner, Manager, Staff)
+- **Roles**: User roles and permissions
+- **User_Activity_Logs**: Track user actions
 - **Products**: Product information
 - **Categories**: Product categories
 - **Product_Images**: Image gallery
@@ -274,11 +312,14 @@ A web-based application enabling businesses to maintain a single product catalog
 
 - SSL/TLS encryption
 - Password hashing (bcrypt)
+- Role-based access control (RBAC)
+- Permission-based feature access
 - Input validation
 - SQL injection prevention
 - XSS protection
 - CSRF protection
 - Rate limiting on forms
+- User activity logging
 
 ### 5.4 Performance Requirements
 
@@ -305,6 +346,7 @@ A web-based application enabling businesses to maintain a single product catalog
 - Catalogue settings
 - Quote requests inbox
 - Customer list
+- User management (Owner only)
 - Settings
 
 ### 6.2 Customer Catalogue
